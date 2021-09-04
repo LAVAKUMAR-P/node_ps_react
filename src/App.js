@@ -7,7 +7,7 @@ function App() {
   const [task,setTask]=useState("");
   let fetchData=async()=>{
     try {
-      let appData = await axios.get("http://localhost:3001/list-all-to-do");
+      let appData = await axios.get("https://todonodefirst.herokuapp.com/list-all-to-do");
       setdata([...appData.data]);
       console.log(data);
     } catch (err) {
