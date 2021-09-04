@@ -20,7 +20,7 @@ function App() {
 
   let handleCreate=async()=>{
   try {
-    let postData=await axios.post("http://localhost:3001/create-task",{task})
+    let postData=await axios.post("https://todonodefirst.herokuapp.com/create-task",{task})
     fetchData();
     setTask("")
   } catch (err) {
@@ -29,7 +29,7 @@ function App() {
   }
   let handleDelete=async(id)=>{
     try {
-      let deleteData=await axios.delete(`http://localhost:3001/delete-task/${id}`)
+      let deleteData=await axios.delete(`https://todonodefirst.herokuapp.com/delete-task/${id}`)
       fetchData();
     } catch (err) {
       console.log(err);
@@ -38,7 +38,7 @@ function App() {
 
   let handleChange=async(e,id)=>{
     try {
-      let updateData =await axios.put(`http://localhost:3001/update-task/${id}`,{status:e.target.checked})
+      let updateData =await axios.put(`https://todonodefirst.herokuapp.com/update-task/${id}`,{status:e.target.checked})
       fetchData();
     } catch (err) {
       console.log(err);
