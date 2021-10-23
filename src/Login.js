@@ -14,7 +14,9 @@ function Login() {
         try {
             let logindata = await axios.post(`${env.api}/login`, { username, password })
             console.log(logindata)
+            window.localStorage.setItem("app_token",logindata.data.token)
             alert(logindata.data.message)
+            history.push("/todo")
         } catch (error) {
             console.log(error)
         }

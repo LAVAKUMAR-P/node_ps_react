@@ -8,7 +8,11 @@ function Todo() {
     const [task,setTask]=useState("");
     let fetchData=async()=>{
       try {
-        let appData = await axios.get(`${env.api}/list-all-to-do`);
+        let appData = await axios.get(`${env.api}/list-all-to-do`,{
+        headers : {
+          "Authorization" : window.localStorage.getItem("app_token")
+        }}
+        )
         setdata([...appData.data]);
         console.log(data);
       } catch (err) {
